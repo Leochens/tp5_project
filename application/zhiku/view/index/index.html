@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>{$TITLE|default='heheh'}</title>
+  <!--加载必要的文件 如css文件-->
+ {include file='index/head_srcs'}
+
+</head>
+
+<body class="bg-light">
+
+    <main class="main oh" id="main">
+    <!--页面预加载-->
+    {include file='index/preloader'}  
+    <!--页头-->
+    {include file='index/header'}     
+    <!-- Trending Now --><!--滚动条-->
+    {include file='index/index_component/trending'}   
+    <!--特色图-->
+    {include file='index/index_component/featured'}  
+    <!--中部内容-->
+    {include file='index/index_component/content'}
+    <!--页脚文件-->
+    {include file='index/footer'}
+
+    <div id="back-to-top">
+      <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
+    </div>
+  </main> <!-- end main-wrapper -->
+
+  
+  <!-- jQuery Scripts  包含必要js文件-->
+{include file='index/js_srcs'}
+</body>
+</html>

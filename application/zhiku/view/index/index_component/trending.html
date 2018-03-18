@@ -1,0 +1,19 @@
+<!-- Trending Now -->
+    <div class="trending-now">
+      <div class="container relative">
+        <span class="trending-now__label">看点</span>
+        <ul class="newsticker">
+          {foreach $arti_data as  $item}
+          <li class="newsticker__item">
+            <a href="tpl/single-post.html" class="newsticker__item-url">{$item.title}</a>
+          </li>
+          {foreachelse}
+          <li class="newsticker__item"><a href="#" class="newsticker__item-url">暂无看点</a></li>
+          {/foreach}          
+        </ul>
+        <div class="newsticker-buttons">
+          <button class="newsticker-button newsticker-button--prev" id="newsticker-button--prev" aria-label="next article"><i class="ui-arrow-left"></i></button>
+          <button class="newsticker-button newsticker-button--next" id="newsticker-button--next" aria-label="previous article"><i class="ui-arrow-right"></i></button>
+        </div>        
+      </div>
+    </div>    

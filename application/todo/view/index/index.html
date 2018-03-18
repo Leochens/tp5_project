@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>代办事项</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale-1,user-scalable=no" >
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--jquery-->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--animated cdn-->
+    <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"
+  integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+  crossorigin="anonymous">
+  <style type="text/css">
+      .isdone{
+        text-decoration: line-through;
+      }
+  </style>
+</head>
+<body>
+ 
+<ul id="L" class="list-group col-lg-6 col-lg-offset-3">
+    {foreach $list as $item}
+    {if $item.isdone eq 1}<!--依据是否完成显示按钮的颜色-->
+    <li id="item_{$item.id}" done="{$item.isdone}" class="isdone animated bounceInLeft things_item h3 list-group-item list-group-item-info">{$item.contents}<button class="btn btn-sm  pull-right" onclick="toggledone(this,{$item.id})">已完成</button><button class="btn btn-sm btn-danger pull-right" onclick="del({$item.id})">删除</botton></li>
+    {else}
+    <li id="item_{$item.id}" class="animated bounceInLeft things_item h3 list-group-item list-group-item-info">{$item.contents}<button class="btn btn-sm btn-success pull-right" onclick="toggledone(this,{$item.id})">已完成</button><button class="btn btn-sm btn-danger pull-right " onclick="del({$item.id})">删除</botton></li>
+    {/if}
+    {/foreach}
+</ul>
+
+<div class="col-lg-6 col-lg-offset-3" action=""  role="form">
+    <legend>代办事项</legend>
+    <div class="form-group ">
+        <label for="">添加事项</label>
+        <input type="text" id="contents" name="contents" class="form-control" id="" placeholder="写下代办事项吧 ~~"></input>
+    </div>
+    <button type="button" id="add" class="btn btn-primary">提交</button>
+</div>
+
+<div id="res"></div>
+
+<script type="text/javascript">
+$('#add').click(function(){
+            $.ajax({
+                type:"POST",
+                url:'{$root}/todo/index/add',
+                data:{
+                    contents:$("#contents").val()
+                },
+                //dataType 大写
+                dataType:"json",
+                success:function(data){
+                    if(data.status)
+                    {
+                        //$("#res").html('成功：'+data.status);
+                        $('#contents').val('');
+                        var x = $(' <li id="item_'+data.id+'"" class="animated bounceInLeft  things_item h3 list-group-item list-group-item-info">'+data.contents+'<button class="btn btn-sm btn-success pull-right" onclick="toggledone(this,'+data.id+')">已完成</button><button class="btn btn-sm btn-danger pull-right" onclick="del('+data.id+')">删除</botton></li>');
+                        $('#L').append(x);
+                    }else{
+                        $("#res").html('出现错误：'+data.error);
+                    }
+                },
+                error:function(jqXHR){
+                    alert("出现错误："+jqXHR.status);
+                }
+            });
+        });        
+  
+
+function del(id){
+            $.ajax({
+                type:"GET",
+                url:'{$root}/todo/index/delete?id='+id,
+                //dataType 大写
+                dataType:"json",
+                success:function(data){
+                    if(data.status)
+                    {
+                        //$("#res").html(data.status);
+                        $('li').remove('#item_'+data.id);
+                    }else{
+                        //$("#res").html(data.status);
+                    }
+                },
+                error:function(jqXHR){
+                    alert("出现错误："+jqXHR.status);
+                }
+            });
+        }  
+
+/**
+ * 是否完成 模式切换
+ * @param  {[type]} obj [description]
+ * @param  {[type]} id  [description]
+ * @return {[type]}     [description]
+ */
+function toggledone(obj,id)
+{
+    if(obj.done)
+    {
+        nodone(id);
+        console.log('no done');
+        obj.done = 0;
+    }else{
+        isdone(id);
+        console.log('is done');
+        obj.done = 1;
+    }
+}     
+//已完成
+function isdone(id){
+        var id;
+        $.ajax({
+                type:"GET",
+                url:'{$root}/todo/index/isdone?id='+id+'&done=1',
+                //dataType 大写
+                dataType:"json",
+                success:function(data){
+                    if(data.status)
+                    {
+                        //$("#res").html('isdone'+data.status);
+                        $('li#item_'+data.id).addClass('isdone');
+                        id=data.id;
+                    }else{
+                        $("#res").html('isdone'+data.status);
+                    }
+                },
+                error:function(jqXHR){
+                    alert("出现错误："+jqXHR.status);
+                }
+            });
+            $('li#item_'+id).find('button').removeClass('btn-success');  
+}
+//撤销完成
+function nodone(id){
+        var id;
+        $.ajax({
+                type:"GET",
+                url:'{$root}/todo/index/isdone?id='+id+'&done=0',
+                //dataType 大写
+                dataType:"json",
+                success:function(data){
+                    if(data.status)
+                    {
+                        //$("#res").html('isdone'+data.status);
+                        $('li#item_'+data.id).removeClass('isdone');
+                        id=data.id;
+                    }else{
+                        $("#res").html('isdone'+data.status);
+                    }
+                },
+                error:function(jqXHR){
+                    alert("出现错误："+jqXHR.status);
+                }
+            });
+            $('li#item_'+id).find('button').addClass('btn-success');  
+}
+</script>
+</body>
+</html>
