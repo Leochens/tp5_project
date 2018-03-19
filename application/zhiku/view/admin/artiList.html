@@ -4,9 +4,9 @@
     <title>新闻列表</title>
 </head>
 <body>
-<a href="{$router_admin_index}">返回管理首页</a>
-<a href="{$router_index}">返回网站首页</a>
-<a href="{$router_article_articleInsertUpdate}">添加文章</a>
+<a href="">返回管理首页</a>
+<a href="">返回网站首页</a>
+<a href="">添加文章</a>
 
 <!--<ul>
 
@@ -34,9 +34,9 @@
         <li class="par ">
             <a href="{$router_article_articleDetail}{$item.id}" class="list-group-item inactive">
                 <h4 class="list-group-item-heading">{$item.title|default:"无内容"}</h4>
-                <p class="list-group-item-text" style="line-height: 2">{$item.content|strip_tags|truncate:200:"..."}
+                <p class="list-group-item-text" style="line-height: 2">{//$item.content|strip_tags|truncate:200:"..."}
                     <span class="item_control"><i class="glyphicon glyphicon-user"></i> {$item.author}</span>
-                    <span class="item_control"><i class="glyphicon glyphicon-time"></i> {'Y-m-d H-i-s'|date:$item.dateline}</span>
+                    <span class="item_control"><i class="glyphicon glyphicon-time"></i> {//'Y-m-d H-i-s'|date:$item.dateline}</span>
                     <span class="item_control"><i class="glyphicon glyphicon-tag"></i> {$item.tags}</span>
                 </p>
 

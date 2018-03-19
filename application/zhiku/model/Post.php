@@ -30,16 +30,16 @@ class Post extends Model
         $this->save();
     }
 
-    /*public function update(){
+    /*public static function update(){
 
     }
 
-    public function delete(){
+    public static function delete(){
 
     }
 
-    public function get(){
-
+    public static function get(){
+        return $this->find();
     }*/
 
 }

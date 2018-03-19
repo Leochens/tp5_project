@@ -2,29 +2,29 @@
 <br><br><br>
 <div class="container">
     <form   class="col-sm-6 col-md-12"  action="admin.php?controller=article&method=articleInsertUpdate" method="post">
-        <input class="form-control input-lg"  type="text" placeholder="文章标题" name="title" value="{$data.title|default:''}">
+        <input class="form-control input-lg"  type="text" placeholder="文章标题" name="title" value="">
         <br>
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1" >作者</span>
-          <input type="text" name="author" value="{$data.author|default:''}" class="form-control" placeholder="" aria-describedby="basic-addon1">
+          <input type="text" name="author" value="" class="form-control" placeholder="" aria-describedby="basic-addon1">
         </div>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon2" >标签</span>
-          <input type="text" class="form-control" name="tags" value="{$data.tags|default:''}" placeholder="" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" name="tags" value="" placeholder="" aria-describedby="basic-addon2">
         </div>
 
         <div class="input-group">
           <span class="input-group-addon">时间</span>
-          <input type="text" name="dateline" value="{'Y-m-d H-i-s'|date:$time}" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <input type="text" name="dateline" value="" class="form-control" aria-label="Amount (to the nearest dollar)">
         </div>
 
         <div class="input-group">
           <span class="input-group-addon">题图</span>
-          <input type="text" name="pic_path" class="form-control" value="{$data.pic_path|default:'img/blog/editors_post_img.jpg'}" aria-label="Amount (to the nearest dollar)">
+          <input type="text" name="pic_path" class="form-control" value="" aria-label="Amount (to the nearest dollar)">
         </div>
         <label for="index"> 优先级 &nbsp;</label>
-          <select name="flag" id="index" value='{$data.flag|default:'normal'}' >
+          <select name="flag" id="index" value='' >
             <option>hot</option>
             <option>latest</option>
             <option>normal</option>
@@ -32,9 +32,9 @@
           </select>
         <input type="submit" value="提交" class="input-group pull-right">
         <br>
-        <textarea name="content" id="summernote" class="form-control" rows="6" >{$data.content|default:''}</textarea>
+        <textarea name="content" id="summernote" class="form-control" rows="6" ></textarea>
         <!-- Single button -->
-         <input type="hidden" name="id" value="{$data.id|default:''}">
+         <input type="hidden" name="id" value="">
     </form>
 </div>
 

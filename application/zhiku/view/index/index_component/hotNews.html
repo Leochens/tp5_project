@@ -29,11 +29,11 @@
              
               <div class="tabs__content-pane tabs__content-pane--active" id="tab-all">
                 <div class="row">
-                 {foreach from=$arti_data item=item name=foo}
+                 {foreach $arti_data as $item}
                   <div class="col-md-6">
                     <article class="entry">
                       <div class="entry__img-holder">
-                        <a href="{$router_article_articleDetail}{$item.id}">
+                        <a href="{$item.id}">
                           <div class="thumb-container thumb-75">
                             <img data-src="{$item.pic_path}" src="{$item.pic_path}" class="entry__img lazyload" alt="" />
                           </div>
@@ -44,7 +44,7 @@
                         <div class="entry__header">
                           <a href="#" class="entry__meta-category">{$item.tags}</a>
                           <h2 class="entry__title">
-                            <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
+                            <a href="{$item.id}">{$item.title}</a>
                           </h2>
                           <ul class="entry__meta">
                             <li class="entry__meta-author">
@@ -62,14 +62,12 @@
                           </ul>
                         </div>
                         <div class="entry__excerpt">
-                          <p>{$item.content|strip_tags|truncate:200:" <a href='{$router_article_articleDetail}{$item.id}'>...查看文章</a>"}</p>
+                          <p>{$item.content}</p>
                         </div>
                       </div>
                     </article>
                   </div>
-                {if $smarty.foreach.foo.iteration eq 4}
-                  {break}
-                  {/if}
+                
                  {/foreach}
                 </div>
 
@@ -77,11 +75,11 @@
              
               <div class="tabs__content-pane" id="tab-teach">
                 <div class="row">
-                  {foreach from=$hot item=item name=foo}
+                  {foreach $hot as $item}
                   <div class="col-md-6">
                     <article class="entry">
                       <div class="entry__img-holder">
-                        <a href="{$router_article_articleDetail}{$item.id}">
+                        <a href="{$item.id}">
                           <div class="thumb-container thumb-75">
                             <img data-src="{$item.pic_path}" src="{$item.pic_path}" class="entry__img lazyload" alt="" />
                           </div>
@@ -92,7 +90,7 @@
                         <div class="entry__header">
                           <a href="#" class="entry__meta-category">{$item.tags}</a>
                           <h2 class="entry__title">
-                            <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
+                            <a href="{$item.id}">{$item.title}</a>
                           </h2>
                           <ul class="entry__meta">
                             <li class="entry__meta-author">
@@ -101,7 +99,7 @@
                             </li>
                             <li class="entry__meta-date">
                               <i class="ui-date"></i>
-                             {'Y-m-d'|date:$item.dateline}
+                             {//'Y-m-d'|date:$item.dateline}
                             </li>
                             <li class="entry__meta-comments">
                               <i class="ui-comments"></i>
@@ -110,14 +108,12 @@
                           </ul>
                         </div>
                         <div class="entry__excerpt">
-                          <p>{$item.content|strip_tags|truncate:200:"..."}</p>
+                          <p>{$item.content}</p>
                         </div>
                       </div>
                     </article>
                   </div>
-                    {if $smarty.foreach.foo.iteration eq 4}
-                      {break}
-                    {/if}                  
+                                    
                    {/foreach}
                 </div>
               </div> <!-- end pane 2 -->

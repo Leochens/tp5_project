@@ -9,9 +9,9 @@
                 </div>
                 <article class="entry">
                   <div class="entry__img-holder">
-                    <a href="{$router_article_articleDetail}{$hot[0].id}">
+                    <a href="">
                       <div class="thumb-container thumb-75">
-                        <img data-src="{$hot[0].pic_path}" src="{$hot[0].pic_path}" class="entry__img lazyload" alt="" />
+                        <img data-src="" class="entry__img lazyload" alt="" />
                       </div>
                     </a>
                   </div>
@@ -19,16 +19,16 @@
                   <div class="entry__body">
                     <div class="entry__header">
                       <h2 class="entry__title">
-                        <a href="{$router_article_articleDetail}{$hot[0].id}">{$hot[0].title}</a>
+                        <a href="</a>
                       </h2>
                       <ul class="entry__meta">
                         <li class="entry__meta-author">
                           <i class="ui-author"></i>
-                          <a href="#">{$hot[0].author}</a>
+                          <a href="#"></a>
                         </li>
                         <li class="entry__meta-date">
                           <i class="ui-date"></i>
-                          {'Y-m-d'|date:$hot[0].dateline}
+                          
                         </li>
                         <li class="entry__meta-comments">
                           <i class="ui-comments"></i>
@@ -37,229 +37,35 @@
                       </ul>
                     </div>
                     <div class="entry__excerpt">
-                      <p>{$hot[0].content|strip_tags|truncate:200:" <a href='{$router_article_articleDetail}{$hot[0].id}'>...查看文章</a>"}</p>
+                      <p></p>
                     </div>
                   </div>
                 </article>
                 <ul class="post-list-small post-list-small--border-top">
-                {foreach from=$hot item=item name=foo}
+                
                     
                   <li class="post-list-small__item">
                     <article class="post-list-small__entry">
                       <div class="post-list-small__body">
                         <h3 class="post-list-small__entry-title">
-                          <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
+                          <a href="</a>
                         </h3>
                         <ul class="entry__meta">
                           <li class="entry__meta-date">
                             <i class="ui-date"></i>
-                            {'Y-m-d'|date:$item.dateline}
+                            
                           </li>
                         </ul>
                       </div>                  
                     </article>
                   </li>
-                    {if $smarty.foreach.foo.iteration eq 4}
-                    {break}
-                    {/if}                   
-                  {/foreach}
+                                     
+                  
                   
                 </ul>
               </div> <!-- end world -->
 
-              <!-- 改革 -->
-              <div class="col-md-6 mb-40">
-                <div class="title-wrap bottom-line bottom-line--violet">
-                  <h3 class="section-title section-title--sm">改革</h3>
-                </div>
-                               <article class="entry">
-                  <div class="entry__img-holder">
-                    <a href="{$router_article_articleDetail}{$hot[0].id}">
-                      <div class="thumb-container thumb-75">
-                        <img data-src="{$hot[1].pic_path}" src="{$hot[1].pic_path}" class="entry__img lazyload" alt="" />
-                      </div>
-                    </a>
-                  </div>
-
-                  <div class="entry__body">
-                    <div class="entry__header">
-                      <h2 class="entry__title">
-                        <a href="{$router_article_articleDetail}{$hot[1].id}">{$hot[1].title}</a>
-                      </h2>
-                      <ul class="entry__meta">
-                        <li class="entry__meta-author">
-                          <i class="ui-author"></i>
-                          <a href="#">{$hot[1].author}</a>
-                        </li>
-                        <li class="entry__meta-date">
-                          <i class="ui-date"></i>
-                          {'Y-m-d'|date:$hot[1].dateline}
-                        </li>
-                        <li class="entry__meta-comments">
-                          <i class="ui-comments"></i>
-                          <a href="#">0</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="entry__excerpt">
-                      <p>{$hot[1].content|strip_tags|truncate:200:" <a href='{$router_article_articleDetail}{$hot[1].id}'>...查看文章</a>"}</p>
-                    </div>
-                  </div>
-                </article>
-                <ul class="post-list-small post-list-small--border-top">
-                {foreach from=$hot item=item name=foo}
-                    
-                  <li class="post-list-small__item">
-                    <article class="post-list-small__entry">
-                      <div class="post-list-small__body">
-                        <h3 class="post-list-small__entry-title">
-                          <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
-                        </h3>
-                        <ul class="entry__meta">
-                          <li class="entry__meta-date">
-                            <i class="ui-date"></i>
-                            {'Y-m-d'|date:$item.dateline}
-                          </li>
-                        </ul>
-                      </div>                  
-                    </article>
-                  </li>
-                    {if $smarty.foreach.foo.iteration eq 4}
-                    {break}
-                    {/if}                   
-                  {/foreach}
-                  
-                </ul>
-              </div> <!-- end sport -->
-
-              <!-- 大学 -->
-              <div class="col-md-6 mb-40">
-                <div class="title-wrap bottom-line bottom-line--blue">
-                  <h3 class="section-title section-title--sm">大学</h3>
-                </div>
-                <article class="entry">
-                  <div class="entry__img-holder">
-                    <a href="{$router_article_articleDetail}{$hot[2].id}">
-                      <div class="thumb-container thumb-75">
-                        <img data-src="{$hot[2].pic_path}" src="{$hot[2].pic_path}" class="entry__img lazyload" alt="" />
-                      </div>
-                    </a>
-                  </div>
-
-                  <div class="entry__body">
-                    <div class="entry__header">
-                      <h2 class="entry__title">
-                        <a href="{$router_article_articleDetail}{$hot[2].id}">{$hot[2].title}</a>
-                      </h2>
-                      <ul class="entry__meta">
-                        <li class="entry__meta-author">
-                          <i class="ui-author"></i>
-                          <a href="#">{$hot[2].author}</a>
-                        </li>
-                        <li class="entry__meta-date">
-                          <i class="ui-date"></i>
-                          {'Y-m-d'|date:$hot[2].dateline}
-                        </li>
-                        <li class="entry__meta-comments">
-                          <i class="ui-comments"></i>
-                          <a href="#">0</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="entry__excerpt">
-                      <p>{$hot[2].content|strip_tags|truncate:200:" <a href='{$router_article_articleDetail}{$hot[2].id}'>...查看文章</a>"}</p>
-                    </div>
-                  </div>
-                </article>
-                <ul class="post-list-small post-list-small--border-top">
-                {foreach from=$hot item=item name=foo}
-                    
-                  <li class="post-list-small__item">
-                    <article class="post-list-small__entry">
-                      <div class="post-list-small__body">
-                        <h3 class="post-list-small__entry-title">
-                          <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
-                        </h3>
-                        <ul class="entry__meta">
-                          <li class="entry__meta-date">
-                            <i class="ui-date"></i>
-                            {'Y-m-d'|date:$item.dateline}
-                          </li>
-                        </ul>
-                      </div>                  
-                    </article>
-                  </li>
-                    {if $smarty.foreach.foo.iteration eq 4}
-                    {break}
-                    {/if}                   
-                  {/foreach}
-                  
-                </ul>
-              </div> <!-- end business -->
-
-                <!-- 大学 -->
-              <div class="col-md-6 mb-40">
-                <div class="title-wrap bottom-line bottom-line--blue">
-                  <h3 class="section-title section-title--sm">大学</h3>
-                </div>
-                <article class="entry">
-                  <div class="entry__img-holder">
-                    <a href="{$router_article_articleDetail}{$hot[3].id}">
-                      <div class="thumb-container thumb-75">
-                        <img data-src="{$hot[3].pic_path}" src="{$hot[3].pic_path}" class="entry__img lazyload" alt="" />
-                      </div>
-                    </a>
-                  </div>
-
-                  <div class="entry__body">
-                    <div class="entry__header">
-                      <h2 class="entry__title">
-                        <a href="{$router_article_articleDetail}{$hot[3].id}">{$hot[3].title}</a>
-                      </h2>
-                      <ul class="entry__meta">
-                        <li class="entry__meta-author">
-                          <i class="ui-author"></i>
-                          <a href="#">{$hot[3].author}</a>
-                        </li>
-                        <li class="entry__meta-date">
-                          <i class="ui-date"></i>
-                          {'Y-m-d'|date:$hot[3].dateline}
-                        </li>
-                        <li class="entry__meta-comments">
-                          <i class="ui-comments"></i>
-                          <a href="#">0</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="entry__excerpt">
-                      <p>{$hot[3].content|strip_tags|truncate:200:" <a href='{$router_article_articleDetail}{$hot[3].id}'>...查看文章</a>"}</p>
-                    </div>
-                  </div>
-                </article>
-                <ul class="post-list-small post-list-small--border-top">
-                {foreach from=$hot item=item name=foo}
-                    
-                  <li class="post-list-small__item">
-                    <article class="post-list-small__entry">
-                      <div class="post-list-small__body">
-                        <h3 class="post-list-small__entry-title">
-                          <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
-                        </h3>
-                        <ul class="entry__meta">
-                          <li class="entry__meta-date">
-                            <i class="ui-date"></i>
-                            {'Y-m-d'|date:$item.dateline}
-                          </li>
-                        </ul>
-                      </div>                  
-                    </article>
-                  </li>
-                    {if $smarty.foreach.foo.iteration eq 4}
-                    {break}
-                    {/if}                   
-                  {/foreach}
-                  
-                </ul>
+              
               </div> <!-- end business -->
             </div>                
           </section> <!-- end posts from categories -->

@@ -3,10 +3,10 @@
               <h3 class="section-title">最新</h3>
               <a href="#" class="all-posts-url">查看全部</a>
             </div>
-            {foreach from=$latest item=item name=foo}
+            {foreach $latest as $item}
             <article class="entry post-list" style="height: 250px;">
               <div class="entry__img-holder post-list__img-holder">
-                <a href="{$router_article_articleDetail}{$item.id}">
+                <a href="{$item.id}">
                   <div class="thumb-container thumb-75">
                     <img data-src="{$item.pic_path}" src="img/empty.png" class="entry__img lazyload" alt="">
                   </div>
@@ -17,7 +17,7 @@
                 <div class="entry__header">
                   <a href="#" class="entry__meta-category">{$item.tags}</a>
                   <h2 class="entry__title">
-                    <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
+                    <a href="{$item.id}">{$item.title}</a>
                   </h2>
                   <ul class="entry__meta">
                     <li class="entry__meta-author">
@@ -26,7 +26,7 @@
                     </li>
                     <li class="entry__meta-date">
                       <i class="ui-date"></i>
-                  {'Y-m-d H-i-s'|date:$item.dateline}
+                  {//'Y-m-d H-i-s'|date:$item.dateline}
                       
                     </li>
                     <li class="entry__meta-comments" >
@@ -39,13 +39,11 @@
                     <!--此处技术点 
                         用samrty的strip_tags去除标签 再截取200个字符 结尾省略号
                         -->
-                  <p>{$item.content|strip_tags|truncate:200:" <a href='{$router_article_articleDetail}{$item.id}'>...查看文章</a>"}</p>
+                  <p>{$item.content}</p>
                 </div>
               </div>
             </article>
-             {if $smarty.foreach.foo.iteration eq 5}
-                    {break}
-                    {/if} 
+              
      
             {/foreach}
            

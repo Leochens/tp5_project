@@ -7,9 +7,9 @@
         <div class="col-lg-8 blog__content mb-30">
           
           <!-- Hot News -->
-        {include  file='tpl/index_component/hotNews.html'}
+             {include  file='index/index_component/hotNews'}
           <!-- Latest News -->
-        {include  file='tpl/index_component/latestNews.html'}
+        {include  file='index/index_component/latestNews'}
  
           <!-- Ad Banner 728 
           <div class="text-center pb-40">
@@ -19,12 +19,14 @@
           </div>-->
 
           <!-- Editor's Picks -->
-        {include  file='tpl/index_component/Normals.html'}
+        {include  file='index/index_component/Normals'}
 
           <!-- end editors picks -->
 
           <!-- Posts from 菜单 -->
-        {include  file='tpl/index_component/categories.html'}
+        {include  file='index/index_component/categories'}
+
+        
 
           <!-- Carousel posts -->
           <section class="section mb-20">
@@ -43,12 +45,12 @@
             <!-- Slider -->
             <div id="owl-posts" class="owl-carousel owl-theme">
 
-               {foreach from=$hot item=item name=foo }
+               
               <article class="entry">
                 <div class="entry__img-holder">
-                  <a href="{$router_article_articleDetail}{$item.id}">
+                  <a href="">
                     <div class="thumb-container thumb-75">
-                      <img data-src="{$item.pic_path}" src="{$item.pic_path}" class="entry__img owl-lazy" alt="" />
+                      <img data-src="" class="entry__img owl-lazy" alt="" />
                     </div>
                   </a>
                 </div>
@@ -56,12 +58,12 @@
                 <div class="entry__body">
                   <div class="entry__header">
                     <h2 class="entry__title entry__title--sm">
-                      <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
+                      <a href="</a>
                     </h2>
                     <ul class="entry__meta">
                       <li class="entry__meta-date">
                         <i class="ui-date"></i>
-                        {'Y-m-d'|date:$item.dateline}
+                        
                       </li>
                       <li class="entry__meta-comments">
                         <i class="ui-comments"></i>
@@ -71,7 +73,7 @@
                   </div>
                 </div>
               </article>
-              {/foreach}
+              
             </div> <!-- end slider -->
 
           </section>
@@ -79,7 +81,8 @@
         </div> <!-- end posts -->
 
         <!-- Sidebar -->
-        {include file='tpl/index_component/right_sidebar.html'}
+        {include file='index/index_component/right_sidebar'}
+        
   
       </div> <!-- end content -->
     </div> <!-- end main container -->

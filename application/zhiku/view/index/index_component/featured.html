@@ -9,13 +9,13 @@
             <article class="entry featured-posts-grid__entry">
               <div class="thumb-bg-holder owl-lazy" data-src="{$item.pic_path}">
                 <img src="{$item.pic_path}" alt="" class="d-none">
-                <a href="{$router_article_articleDetail}{$item.id}" class="thumb-url"></a>
+                <a href="{$item.id}" class="thumb-url"></a>
                 <div class="bottom-gradient"></div>
               </div>
               <div class="thumb-text-holder">
                 <a href="tpl/single_aricle/single-post.html" class="entry__meta-category entry__meta-category-color entry__meta-category-color--salad">{$item.tags}</a>   
                 <h2 class="thumb-entry-title">
-                  <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
+                  <a href="{$item.id}">{$item.title}</a>
                 </h2>
               </div>
             </article>
@@ -24,17 +24,17 @@
           </div> <!-- end owl slider -->
         </div> <!-- end large post slider -->
         
-        {foreach from=$latest item=item name=foo }
+        {foreach $latest as $item }
         <div class="featured-posts-grid__item featured-posts-grid__item--sm">        
           <article class="entry featured-posts-grid__entry">
             <div class="thumb-bg-holder" style="background-image: url({$item.pic_path});">
-              <a href="{$router_article_articleDetail}{$item.id}" class="thumb-url"></a>
+              <a href="{$item.id}" class="thumb-url"></a>
               <div class="bottom-gradient"></div>
             </div>
 
             <div class="thumb-text-holder">  
               <h2 class="thumb-entry-title thumb-entry-title--sm">
-                <a href="{$router_article_articleDetail}{$item.id}">{$item.title}</a>
+                <a href="{$item.id}">{$item.title}</a>
               </h2>
               <ul class="entry__meta">
                 <li class="entry__meta-author">
@@ -43,7 +43,7 @@
                 </li>
                 <li class="entry__meta-date">
                   <i class="ui-date"></i>
-                  {'Y-m-d H-i-s'|date:$item.dateline}
+                  {//'Y-m-d H-i-s'|date:$item.dateline}
                 </li>
                 <li class="entry__meta-comments">
                   <i class="ui-comments"></i>
@@ -53,20 +53,18 @@
             </div>
           </article>
         </div>
-         {if $smarty.foreach.foo.iteration eq 2}
-                    {break}
-          {/if} 
+         
       {foreachelse}
       <div class="featured-posts-grid__item featured-posts-grid__item--sm">        
           <article class="entry featured-posts-grid__entry">
             <div class="thumb-bg-holder" style="background-image: url('tpl/img/blog/featured_grid_3.jpg');">
-              <a href="{$router_article_articleDetail}" class="thumb-url"></a>
+              <a href="" class="thumb-url"></a>
               <div class="bottom-gradient"></div>
             </div>
 
             <div class="thumb-text-holder">  
               <h2 class="thumb-entry-title thumb-entry-title--sm">
-                <a href="{$router.router_article_articleInsertUpdate}">请添加</a>
+                <a href="">请添加</a>
               </h2>
               <ul class="entry__meta">
                 <li class="entry__meta-author">

@@ -29,17 +29,16 @@ class Post extends Controller{
         if(!$this->isPost())
         {
             return $this->showMessage('不是post的数据或post了空数据');            
-            
         }
         
         $data =[
-            'title' => 'zhl-tp-zhiku-test',
-            'author' => 'zhl',
+            'title' => $_POST['title'],
+            'author' => $_POST['author'],
             'dateline' => time(),
-            'content' => 'this is a tp-zhiku test contents',
-            'tags'=>'test',
-            'pic_path'=>'####',
-            'flag' => 'hot' 
+            'content' => $_POST['content'],
+            'tags'=>$_POST['tags'],
+            'pic_path'=>$_POST['pic_path'],
+            'flag' => $_POST['flag'] 
         ];
 
         $this->postModel->add($data);
