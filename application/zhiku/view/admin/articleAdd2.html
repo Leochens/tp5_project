@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加新闻</title>
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+
+    <!-- include summernote css/js-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+
+</head>
+<body>
+<form id="form" action="{$router_article_articleInsertUpdate}" method="post">
+    
+    标题<input type="" name="title" value="{$data.title|default:''}"><br>
+    发布人<input type="" name="author" value="{$data.author|default:''}"><br>
+    标签<input type="" name="tags" value="{$data.tags|default:''}"><br>
+    图片路径<input type="" name="pic_path" value="{$data.pic_path|default:'tpl/img/blog/editors_post_img.jpg'}"><br>
+    
+    内容 <textarea id="summernote" name="content" >{$data.content|default:''}</textarea><br>
+    
+    <!--获得id-->
+    时间 <input type="text" name="dateline" value="{'Y-m-d H-i-s'|date:$time}">
+    优先级 <select name="flag" value='normal'>
+      <option>normal</option>
+      <option>hot</option>
+      <option>latest</option>
+      <option>important</option>
+
+    </select>   
+    <input type="hidden" name="id" value="{$data.id|default:''}">
+    
+    <input type="submit" value="提交">
+    
+</form>
+<script>
+    // 初始化插件
+$(function () {
+    $("#summernote").summernote();
+});
+$('#summernote').summernote({
+     // 语言
+     lang:'zh-CN',
+  height: 300,                 // set editor height
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+  focus: true                  // set focus to editable area after initializing summernote
+});
+</script>
+</body>
+</html>

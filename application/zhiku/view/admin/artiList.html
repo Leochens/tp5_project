@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新闻列表</title>
+</head>
+<body>
+<a href="{$router_admin_index}">返回管理首页</a>
+<a href="{$router_index}">返回网站首页</a>
+<a href="{$router_article_articleInsertUpdate}">添加文章</a>
+
+<!--<ul>
+
+    <li>
+        <h1>{$item.title}</h1>
+        <a href="{$router_article_articleDelete}{$item.id}">删除</a>
+        <a href="{$router_article_articleInsertUpdate}{$item.id}">编辑</a><br><br>
+        <b>作者 </b><span >{$item.author}</span >
+        <b>标签 </b><span >{$item.tags}</span >
+        <b>时间 </b><span >{'Y-m-d H-i-s'|date:$item.dateline}</span >
+        <b>编号 </b><span >{$item.id}</span ><br>
+        <b>优先级 </b><span >{$item.flag}</span ><br>
+        <b>图片 </b><span >{$item.pic_path}</span ><br><br>
+    
+        <div>{$item.content}</div>
+    </li>
+
+<h3>暂无文章</h3>0
+
+</ul>-->
+<br><br><br>
+<div class="list_main container cols-md-12">
+    <ul class="list-group">
+        {foreach $artiList as $item}
+        <li class="par ">
+            <a href="{$router_article_articleDetail}{$item.id}" class="list-group-item inactive">
+                <h4 class="list-group-item-heading">{$item.title|default:"无内容"}</h4>
+                <p class="list-group-item-text" style="line-height: 2">{$item.content|strip_tags|truncate:200:"..."}
+                    <span class="item_control"><i class="glyphicon glyphicon-user"></i> {$item.author}</span>
+                    <span class="item_control"><i class="glyphicon glyphicon-time"></i> {'Y-m-d H-i-s'|date:$item.dateline}</span>
+                    <span class="item_control"><i class="glyphicon glyphicon-tag"></i> {$item.tags}</span>
+                </p>
+
+            </a>
+            <div class="list-group-item inactive" href="">
+                <a href="{$router_article_articleInsertUpdate}{$item.id}" class="it"><i class="glyphicon glyphicon-edit"></i> 编辑</a>
+                <a href="{$router_article_articleDelete}{$item.id}" class="it"><i class="glyphicon glyphicon-remove-sign"></i> 删除</a>
+            </div>
+
+        </li>
+        {foreachelse}
+        <h3>暂无文章</h3>0
+    {/foreach}
+    </ul>
+   
+</div>
+
+
+<style type="text/css">
+    ul,li{
+        list-style: none;
+    }
+    .par{
+        margin: 5px;
+    }
+    .item_control{
+        margin:0 10px ;
+        color: #8B0000;
+    }
+   .it{
+       cursor: pointer;
+        margin:0 10px ;
+   }
+</style>
+</body>
+</html>
