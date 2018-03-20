@@ -29,7 +29,13 @@
              
               <div class="tabs__content-pane tabs__content-pane--active" id="tab-all">
                 <div class="row">
-                 {foreach $arti_data as $item}
+  
+                 <?php foreach($arti_data as $index => $item) {
+                  if($index >= 5)
+                    break;
+
+
+                 ?>    
                   <div class="col-md-6">
                     <article class="entry">
                       <div class="entry__img-holder">
@@ -53,7 +59,7 @@
                             </li>
                             <li class="entry__meta-date">
                               <i class="ui-date"></i>
-                             {'Y-m-d'|date:$item.dateline}
+                             {//'Y-m-d'|date:$item.dateline}
                             </li>
                             <li class="entry__meta-comments">
                               <i class="ui-comments"></i>
@@ -62,13 +68,13 @@
                           </ul>
                         </div>
                         <div class="entry__excerpt">
-                          <p>{$item.content}</p>
+                          <p>{$item.content|substr=0,30}</p>
                         </div>
                       </div>
                     </article>
                   </div>
                 
-                 {/foreach}
+                 <?php } ?>
                 </div>
 
               </div> <!-- end pane 1 -->

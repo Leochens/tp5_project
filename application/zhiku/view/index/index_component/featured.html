@@ -2,6 +2,7 @@
     <section class="featured-posts-grid bg-dark">
       <div class="container clearfix">
         <!-- Large post slider -->
+        <!--大的轮播图-->
         <div class="featured-posts-grid__item featured-posts-grid__item--lg">
           <div id="owl-hero-grid" class="owl-carousel owl-theme owl-carousel--dots-inside">
             <!--首页轮播大图-->
@@ -24,7 +25,14 @@
           </div> <!-- end owl slider -->
         </div> <!-- end large post slider -->
         
-        {foreach $latest as $item }
+     
+        <?php
+        $flag = 0; 
+        if(empty($latest))
+              $flag=1;
+        foreach($latest as $index=>$item){
+          if($index>1)break;
+         ?>
         <div class="featured-posts-grid__item featured-posts-grid__item--sm">        
           <article class="entry featured-posts-grid__entry">
             <div class="thumb-bg-holder" style="background-image: url({$item.pic_path});">
@@ -53,9 +61,11 @@
             </div>
           </article>
         </div>
-         
-      {foreachelse}
-      <div class="featured-posts-grid__item featured-posts-grid__item--sm">        
+      <?php } ?>
+        
+      <?php if($flag){?>
+        <!--判断是否输出默认的模板-->
+        <div class="featured-posts-grid__item featured-posts-grid__item--sm">        
           <article class="entry featured-posts-grid__entry">
             <div class="thumb-bg-holder" style="background-image: url('tpl/img/blog/featured_grid_3.jpg');">
               <a href="" class="thumb-url"></a>
@@ -83,7 +93,6 @@
             </div>
           </article>
         </div>      
-      {/foreach}
-       
+      <?php } ?>
       </div>
     </section> <!-- end featured posts grid -->
