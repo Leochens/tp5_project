@@ -6,7 +6,8 @@
         <div class="featured-posts-grid__item featured-posts-grid__item--lg">
           <div id="owl-hero-grid" class="owl-carousel owl-theme owl-carousel--dots-inside">
             <!--首页轮播大图-->
-            {foreach $hot as $item}
+
+            {volist name='hot' id = 'item' length='5'}
             <article class="entry featured-posts-grid__entry">
               <div class="thumb-bg-holder owl-lazy" data-src="{$item.pic_path}">
                 <img src="{$item.pic_path}" alt="" class="d-none">
@@ -20,19 +21,14 @@
                 </h2>
               </div>
             </article>
-            {/foreach}
+            {/volist}
             
           </div> <!-- end owl slider -->
         </div> <!-- end large post slider -->
         
      
-        <?php
-        $flag = 0; 
-        if(empty($latest))
-              $flag=1;
-        foreach($latest as $index=>$item){
-          if($index>1)break;
-         ?>
+       
+        {volist name='latest' id='item' length='2'}
         <div class="featured-posts-grid__item featured-posts-grid__item--sm">        
           <article class="entry featured-posts-grid__entry">
             <div class="thumb-bg-holder" style="background-image: url({$item.pic_path});">
@@ -61,11 +57,9 @@
             </div>
           </article>
         </div>
-      <?php } ?>
-        
-      <?php if($flag){?>
+        {/volist}
         <!--判断是否输出默认的模板-->
-        <div class="featured-posts-grid__item featured-posts-grid__item--sm">        
+        <!-- <div class="featured-posts-grid__item featured-posts-grid__item--sm">        
           <article class="entry featured-posts-grid__entry">
             <div class="thumb-bg-holder" style="background-image: url('tpl/img/blog/featured_grid_3.jpg');">
               <a href="" class="thumb-url"></a>
@@ -92,7 +86,7 @@
               </ul>
             </div>
           </article>
-        </div>      
-      <?php } ?>
+        </div> -->      
+      
       </div>
     </section> <!-- end featured posts grid -->
