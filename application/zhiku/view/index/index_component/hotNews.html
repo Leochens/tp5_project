@@ -29,13 +29,8 @@
              
               <div class="tabs__content-pane tabs__content-pane--active" id="tab-all">
                 <div class="row">
-  
-                 <?php foreach($arti_data as $index => $item) {
-                  if($index >= 5)
-                    break;
 
-
-                 ?>    
+                 {volist name='arti_data' id='item' length='4'}
                   <div class="col-md-6">
                     <article class="entry">
                       <div class="entry__img-holder">
@@ -73,15 +68,16 @@
                       </div>
                     </article>
                   </div>
-                
-                 <?php } ?>
+                {/volist}
                 </div>
 
               </div> <!-- end pane 1 -->
              
               <div class="tabs__content-pane" id="tab-teach">
                 <div class="row">
-                  {foreach $hot as $item}
+                 
+                 {volist name='hot' id='item' length='4'}
+
                   <div class="col-md-6">
                     <article class="entry">
                       <div class="entry__img-holder">
@@ -114,15 +110,15 @@
                           </ul>
                         </div>
                         <div class="entry__excerpt">
-                          <p>{$item.content}</p>
+                          <p>{$item.content|substr=0,30}</p>
                         </div>
                       </div>
                     </article>
                   </div>
-                                    
-                   {/foreach}
+                    {/volist}
                 </div>
-              </div> <!-- end pane 2 -->
+              </div> 
+              <!-- end pane 2 -->
               <!--<div class="tabs__content-pane" id="tab-environment">
                 <div class="row">
                   <div class="col-md-6">
