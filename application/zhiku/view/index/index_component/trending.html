@@ -4,9 +4,11 @@
         <span class="trending-now__label">看点</span>
         <ul class="newsticker">
           {foreach $arti_data as  $item}
+          
           <li class="newsticker__item">
             <a href="tpl/single-post.html" class="newsticker__item-url">{$item.title}</a>
           </li>
+
           {foreachelse}
           <li class="newsticker__item"><a href="#" class="newsticker__item-url">暂无看点</a></li>
           {/foreach}          
