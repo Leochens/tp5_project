@@ -1,6 +1,31 @@
 <?php 
 namespace app\zhiku\controller;
 use think\Controller;
+
+// 路由设置
+use think\Route;
+Route::rule('Single','zhiku/Single/index');
+
+
+/***
+****
+*
+*           路由问题！！
+*
+*
+*
+* /
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 单一文章页面
  * 详情页

@@ -4,9 +4,9 @@
         <span class="trending-now__label">看点</span>
         <ul class="newsticker">
           
-          {volist name='arti_data' id='item' }
+          {volist name='arti_data' id='item' length='10'}
           <li class="newsticker__item">
-            <a href="tpl/single-post.html" class="newsticker__item-url">{$item.title}</a>
+            <a href="{$single_route}{$item.id}" class="newsticker__item-url">{$item.title}</a>
           </li>
           <!-- <li class="newsticker__item"><a href="#" class="newsticker__item-url">暂无看点</a></li> -->
           {/volist}

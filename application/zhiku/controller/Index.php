@@ -2,6 +2,10 @@
 namespace app\zhiku\controller;
 use think\Controller;
 use think\Db;
+
+use think\Route;
+Route::rule('zhiku','zhiku/index/index');
+
 class Index extends Controller{
 
     public function index(){
@@ -11,7 +15,8 @@ class Index extends Controller{
             'arti_data'=>$postModel->select(),
             'hot'=> $postModel->where('flag','hot')->select(),
             'latest'=> $postModel->where('flag','latest')->select(),
-            'Menu'=>array(3)
+            'Menu'=>array(3),
+            'single_route'=>'/post/'
         ]);
         //print_r($postModel->select());
         //注册根目录

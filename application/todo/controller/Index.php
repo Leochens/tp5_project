@@ -1,6 +1,8 @@
 <?php 
 namespace app\todo\controller;
 use think\Controller;
+use think\Route;
+Route::rule('todo','todo/index/index');
 
 class Index extends Controller{
     public function index(){
