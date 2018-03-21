@@ -10,7 +10,8 @@ class Index extends Controller{
         $this->assign([
             'arti_data'=>$postModel->select(),
             'hot'=> $postModel->where('flag','hot')->select(),
-            'latest'=> $postModel->where('flag','latest')->select()
+            'latest'=> $postModel->where('flag','latest')->select(),
+            'Menu'=>array(3)
         ]);
         //print_r($postModel->select());
         //注册根目录
