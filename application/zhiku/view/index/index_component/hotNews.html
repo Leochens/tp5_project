@@ -29,7 +29,6 @@
              
               <div class="tabs__content-pane tabs__content-pane--active" id="tab-all">
                 <div class="row">
-
                  {volist name='arti_data' id='item' length='4'}
                   <div class="col-md-6">
                     <article class="entry">
@@ -54,7 +53,8 @@
                             </li>
                             <li class="entry__meta-date">
                               <i class="ui-date"></i>
-                             {//'Y-m-d'|date:$item.dateline}
+                             {//记得后面的站位参数###}
+                             {$item.dateline|date='Y-m-d',###}
                             </li>
                             <li class="entry__meta-comments">
                               <i class="ui-comments"></i>
@@ -63,7 +63,7 @@
                           </ul>
                         </div>
                         <div class="entry__excerpt">
-                          <p>{$item.content|substr=0,30}</p>
+                          <p>{$item.content|strip_tags|substr=0,300}</p>
                         </div>
                       </div>
                     </article>
@@ -101,7 +101,8 @@
                             </li>
                             <li class="entry__meta-date">
                               <i class="ui-date"></i>
-                             {//'Y-m-d'|date:$item.dateline}
+                              {$item.dateline|date='Y-m-d',###}
+
                             </li>
                             <li class="entry__meta-comments">
                               <i class="ui-comments"></i>
@@ -110,7 +111,7 @@
                           </ul>
                         </div>
                         <div class="entry__excerpt">
-                          <p>{$item.content|substr=0,30}</p>
+                          <p>{$item.content|strip_tags|substr=0,300}</p>
                         </div>
                       </div>
                     </article>

@@ -4,9 +4,8 @@
               <a href="#" class="all-posts-url">查看全部</a>
             </div>
           
-            <?php foreach($latest as $index=>$item){
-              if($index>=4) break;
-             ?> 
+      
+             {volist name='latest' id='item' length='4'}
             <article class="entry post-list" style="height: 250px;">
               <div class="entry__img-holder post-list__img-holder">
                 <a href="{$item.id}">
@@ -29,7 +28,7 @@
                     </li>
                     <li class="entry__meta-date">
                       <i class="ui-date"></i>
-                  {//'Y-m-d H-i-s'|date:$item.dateline}
+                  {$item.dateline|date='Y-m-d',###}
                       
                     </li>
                     <li class="entry__meta-comments" >
@@ -42,12 +41,12 @@
                     <!--此处技术点 
                         用samrty的strip_tags去除标签 再截取200个字符 结尾省略号
                         -->
-                  <p>{$item.content}</p>
+                  <p>{$item.content|strip_tags|substr=0,300}</p>
                 </div>
               </div>
             </article>
               
-     
-            <?php } ?>
+            {/volist}
+ 
            
           </section> <!-- end latest news -->
