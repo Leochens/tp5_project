@@ -19,6 +19,19 @@ class Admin extends Controller{
         
         return $this->fetch('index',[],['__PUBLIC__'=>'/public/']);
     }
+
+    public function login()
+    {
+
+
+        /**
+         * 模板文件不存在 问题待解决
+         */
+
+
+
+        return $this->fetch('login',[],['__PUBLIC__'=>'/public/']);
+    }
 }
 
 

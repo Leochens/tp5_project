@@ -7,12 +7,13 @@
   <meta name="keywords" content="">
   <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Amaze UI Examples</title>
+  <title>Login</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
-  <link rel="stylesheet" href="tpl/admin/css/amazeui.min.css">
-  <link rel="stylesheet" href="tpl/admin/css/bootstrap.min.css">
-  <link rel="stylesheet" href="tpl/admin/css/app.css">
+
+
+  {include file='common/header_srcs'}
+
 </head>
 <body>
 <div class="am-g myapp-login">
@@ -31,7 +32,7 @@
             <i>登录</i> or <span> 注册</span>
         </div>
         <div class="am-u-sm-4 login-am-center">
-            <form class="am-form" method="post" action="{$router_admin_login}">
+            <form class="am-form" method="post" action="">
                 <fieldset>
                     <div class="am-form-group">
                         <input name="username" type="text" class="" id="doc-ipt-email-1" placeholder="用户名">
@@ -48,10 +49,10 @@
 
 </div>
 <div class="copyright" align="center">
-    {$copyright}
+    copyright
 </div>  
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="tpl/admin/js/jquery.min.js"></script>
+{load href='__PUBLIC__/static/js/jquery.min.js'}
 <!--<![endif]-->
 <!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
