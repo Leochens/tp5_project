@@ -17,7 +17,7 @@ class Admin extends Controller{
 
         ]);
         
-        return $this->fetch('index',[],['__PUBLIC__'=>'/public/']);
+        return $this->fetch('index');
     }
 
     public function login()
@@ -26,11 +26,10 @@ class Admin extends Controller{
 
         /**
          * 模板文件不存在 问题待解决
+         * 已解决  控制器中不用设定__PUBLIC__ 资源加载时写/static/..即可
          */
 
-
-
-        return $this->fetch('login',[],['__PUBLIC__'=>'/public/']);
+        return $this->fetch('login');
     }
 }
 

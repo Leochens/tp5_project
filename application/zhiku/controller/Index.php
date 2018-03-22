@@ -20,7 +20,7 @@ class Index extends Controller{
         ]);
         //print_r($postModel->select());
         //注册根目录
-        return $this->fetch('index',[],['__PUBLIC__'=>'/public/']);
+        return $this->fetch('index');
     }
 
 }
