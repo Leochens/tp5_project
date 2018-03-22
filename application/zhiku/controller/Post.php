@@ -10,7 +10,7 @@ class Post extends Controller{
 
         //先调用父类的构建函数
         parent::__construct();
-        
+        $this->postModel=db('article');
     }
     public function _initialize(){
         //判断是否登录且是管理员 否则没有权限操作
@@ -41,16 +41,29 @@ class Post extends Controller{
             'flag' => $_POST['flag'] 
         ];
 
-        $this->postModel->add($data);
+        if($this->postModel->insert($data))
+            return $this->showMessage('添加成功');
+        else
+            return $this->showMessage('添加失败');
+
     }  
 
     public function delete(){
 
+        if($this->isGet()&&isset($_GET['id'])&&!empty($_GET['id'])&&$_GET['id']>=0)
+        {
+            if($this->postModel->where('id',$_GET['id'])->delete())
+                return $this->showMessage('删除成功');
+            else
+                return $this->showMessage('删除失败');
+        }else{
+            return $this->showMessage('检测GET数据：未输入或输入的GET值有误');
+        }
 
     }
 
     public function update(){
-
+        
     }
 
     public function get(){

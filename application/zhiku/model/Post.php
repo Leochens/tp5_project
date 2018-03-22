@@ -25,23 +25,11 @@ class Post extends Model
         parent::initialize();
     }
 
-    public function add($data){
-        $this->data($data);
-        $this->save();
-    }
-
-    /*public static function update(){
-
-    }
-
-    public static function delete(){
-
-    }
-
-    public static function get(){
-        return $this->find();
-    }*/
-
+    public static function all($data = null, $with = [], $cache = false)
+      {
+      $query = static::parseQuery($data, $with, $cache);
+      return $query->select($data);
+      }
 }
 
 

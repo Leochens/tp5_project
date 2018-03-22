@@ -16,7 +16,7 @@ class Index extends Controller{
             'hot'=> $postModel->where('flag','hot')->select(),
             'latest'=> $postModel->where('flag','latest')->select(),
             'Menu'=>array(3),
-            'single_route'=>'/post/'
+            'single_route'=>'single/'
         ]);
         //print_r($postModel->select());
         //注册根目录

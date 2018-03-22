@@ -15,9 +15,11 @@ use think\Route;
 /************智库***********/
 
 //详情页路由
-Route::rule('post/:id','zhiku/Single/index');
+Route::rule('single/:id','zhiku/Single/index');
 Route::rule('admin','zhiku/Admin/index');
 Route::rule('admin/add','zhiku/Admin/add');
+Route::rule('post/add','zhiku/Post/add');
+Route::rule('post/delete','zhiku/Post/delete');
 Route::rule('admin/list','zhiku/Admin/artiList');
 Route::rule('login','zhiku/Admin/login');
 
