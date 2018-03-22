@@ -32,20 +32,20 @@
             {include file='admin/nav'}
             <!-- /top nav -->
 
-            
+
 <br><br><br>
-<div class="list_main container cols-md-12">
+    <div class="list_main container cols-md-12">
     <ul class="list-group">
         
+        {volist name='artiList' id='item' }
         <li class="par ">
             <a href="" class="list-group-item inactive">
-                <h4 class="list-group-item-heading"></h4>
+                <h4 class="list-group-item-heading">{$item.title}</h4>
                 <p class="list-group-item-text" style="line-height: 2">
-                    <span class="item_control"><i class="glyphicon glyphicon-user"></i> </span>
-                    <span class="item_control"><i class="glyphicon glyphicon-time"></i> </span>
-                    <span class="item_control"><i class="glyphicon glyphicon-tag"></i> </span>
+                    <span class="item_control"><i class="glyphicon glyphicon-user"></i>{$item.author} </span>
+                    <span class="item_control"><i class="glyphicon glyphicon-time"></i>{$item.dateline|date='Y-m-d',###} </span>
+                    <span class="item_control"><i class="glyphicon glyphicon-tag"></i> {$item.tags}</span>
                 </p>
-
             </a>
             <div class="list-group-item inactive" href="">
                 <a href="" class="it"><i class="glyphicon glyphicon-edit"></i> 编辑</a>
@@ -53,12 +53,10 @@
             </div>
 
         </li>
+        {/volist}
         
-        <h3>暂无文章</h3>0
-    
     </ul>
-   
-</div>
+    </div>
 
 
 
@@ -78,7 +76,7 @@
         <!-- <script src="tpl/admin/js/admin_scripts.js"></script> -->
           {load href='/static/js/admin_scripts.js' /}
 
-          <style type="text/css">
+<style type="text/css">
     ul,li{
         list-style: none;
     }

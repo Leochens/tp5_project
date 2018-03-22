@@ -18,7 +18,7 @@ use think\Route;
 Route::rule('post/:id','zhiku/Single/index');
 Route::rule('admin','zhiku/Admin/index');
 Route::rule('admin/add','zhiku/Admin/add');
-Route::rule('admin/list','zhiku/Admin/list__');
+Route::rule('admin/list','zhiku/Admin/artiList');
 Route::rule('login','zhiku/Admin/login');
 
 

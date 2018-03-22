@@ -10,11 +10,9 @@ class Admin extends Controller{
     public function index($what = 'articleAdd'){
             
 
-        $postModel = model('Post');
 
         $this->assign([
-            'artiList'  => $postModel->where(1)->select(),  
-            'what'=>'admin/'.$what
+           
         ]);
         
         return $this->fetch('index');
@@ -37,7 +35,16 @@ class Admin extends Controller{
 
     }
 
-    public function list__(){
+    public function artiList(){
+
+        $posts = db('article')->select();
+
+
+        $this->assign([
+            'artiList'  => $posts,  
+            
+        ]);        
+        //print_r($posts);
         return $this->fetch('artiList');
     }
 }
