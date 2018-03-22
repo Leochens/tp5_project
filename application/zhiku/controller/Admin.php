@@ -7,14 +7,14 @@ use think\Controller;
  */
 
 class Admin extends Controller{
-    public function index(){
-        
+    public function index($what = 'articleAdd'){
+            
 
         $postModel = model('Post');
 
         $this->assign([
-            'artiList'  => $postModel->where(1)->find()  
-
+            'artiList'  => $postModel->where(1)->select(),  
+            'what'=>'admin/'.$what
         ]);
         
         return $this->fetch('index');
@@ -30,6 +30,15 @@ class Admin extends Controller{
          */
 
         return $this->fetch('login');
+    }
+
+    public function add(){
+        return $this->fetch('articleAdd');
+
+    }
+
+    public function list__(){
+        return $this->fetch('artiList');
     }
 }
 

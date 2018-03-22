@@ -1,5 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 
-<br><br><br>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+        <!-- include summernote css/js-->
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+      <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+        {load href='/static/css/admin_styles.css' /}
+  </head>
+  <body>
+
+
+
+<div class="wrapper">
+    <div class="box">
+        <div class="row row-offcanvas row-offcanvas-left">
+            <!-- sidebar -->
+            {include file='admin/sidebar'}
+            <!-- /sidebar -->
+            <!-- main right col -->
+            <div class="column col-sm-10 col-xs-11" id="main">
+            <!-- top nav -->
+            {include file='admin/nav'}
+            <!-- /top nav -->
+            
+            
+            <!--动态加载模板文件 注意写法   NOTE！！-->
+            <br><br><br>
 <div class="container">
     <form   class="col-sm-6 col-md-12"  action="admin.php?controller=article&method=articleInsertUpdate" method="post">
         <input class="form-control input-lg"  type="text" placeholder="文章标题" name="title" value="">
@@ -53,5 +90,23 @@ $('#summernote').summernote({
 });
 
 </script>
+
+            
+            
+            </div>
+            <!-- /main right col -->
+            <!-- /main -->
+        </div>
+    </div>
+</div>
+
+
+
+  <!-- script references 
+    <script src="tpl/admin/js/bootstrap.min.js"></script>-->
+    <!-- <script src="tpl/admin/js/admin_scripts.js"></script> -->
+          {load href='/static/js/admin_scripts.js' /}
+  </body>
+</html>
 
 

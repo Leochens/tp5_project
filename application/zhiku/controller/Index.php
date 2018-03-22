@@ -4,7 +4,7 @@ use think\Controller;
 use think\Db;
 
 use think\Route;
-Route::rule('zhiku','zhiku/index/index');
+
 
 class Index extends Controller{
 

@@ -32,8 +32,10 @@
             {include file='admin/nav'}
             <!-- /top nav -->
             
-            {include file='admin/articleAdd'}}
-
+            
+            <!--动态加载模板文件 注意写法   NOTE！！-->
+            
+            
             
             </div>
             <!-- /main right col -->
@@ -47,6 +49,6 @@
 	<!-- script references 
 		<script src="tpl/admin/js/bootstrap.min.js"></script>-->
 		<!-- <script src="tpl/admin/js/admin_scripts.js"></script> -->
-          {load href='__PUBLIC__/static/js/admin_scripts.js' /}
+          {load href='/static/js/admin_scripts.js' /}
 	</body>
 </html>

@@ -17,6 +17,8 @@ use think\Route;
 //详情页路由
 Route::rule('post/:id','zhiku/Single/index');
 Route::rule('admin','zhiku/Admin/index');
+Route::rule('admin/add','zhiku/Admin/add');
+Route::rule('admin/list','zhiku/Admin/list__');
 Route::rule('login','zhiku/Admin/login');
 
 
