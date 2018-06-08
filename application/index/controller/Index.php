@@ -7,6 +7,6 @@ ini_set('display_startup_errors',1);    //php启动错误信息
 
 class Index extends Controller{
     public function index(){    
-            return '<h1>hello ThinkPHP!</h1>';
+            return '<h1>hello ThinkPHP!asca</h1>';
     }
 }

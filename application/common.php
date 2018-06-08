@@ -22,5 +22,6 @@ Route::rule('post/add','zhiku/Post/add');
 Route::rule('post/delete','zhiku/Post/delete');
 Route::rule('admin/list','zhiku/Admin/artiList');
 Route::rule('login','zhiku/Admin/login');
+Route::rule('tt','index/index/index');
 
 
